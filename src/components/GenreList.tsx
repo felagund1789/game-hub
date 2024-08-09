@@ -7,6 +7,7 @@ import {
   ListItem,
   SkeletonText,
 } from "@chakra-ui/react";
+import logo from "../assets/logo.webp";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import useGameQueryStore from "../store";
@@ -31,8 +32,30 @@ const GenreList = () => {
 
   return (
     <>
-      <Heading fontSize="2xl" marginBottom={3}>Genres</Heading>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
       <List>
+        <ListItem paddingY="5px">
+          <HStack>
+              <Image
+                boxSize="32px"
+                borderRadius={8}
+                src={logo}
+              />
+            <Button
+              whiteSpace="normal"
+              textAlign="left"
+              objectFit="cover"
+              fontWeight={!selectedGenreId ? "bold" : "normal"}
+              onClick={() => setSelectedGenreId(undefined)}
+              variant="link"
+              fontSize="lg"
+            >
+              All
+            </Button>
+          </HStack>
+        </ListItem>
         {data?.results?.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
