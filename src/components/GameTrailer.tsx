@@ -11,9 +11,9 @@ const GameTrailer = ({ gameId }: Props) => {
 
   if (error) throw error;
 
-  const first = data?.results[0];
+  const first = data?.results.sort((a, b) => a.id - b.id).pop();
   return first ? (
-    <video src={first.data[480]} poster={first.preview} controls></video>
+    <video src={first.data.max} poster={first.preview} controls></video>
   ) : null;
 };
 
