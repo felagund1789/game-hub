@@ -1,12 +1,10 @@
-import { Badge, Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ExpandableText from "../components/ExpandableText";
-import useGame from "../hooks/useGame";
-import DefinitionItem from "../components/DefinitionItem";
-import CriticScore from "../components/CriticScore";
 import GameAttributes from "../components/GameAttributes";
-import GameTrailer from "../components/GameTrailer";
 import GameScreenshots from "../components/GameScreenshots";
+import GameTrailer from "../components/GameTrailer";
+import useGame from "../hooks/useGame";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -17,13 +15,17 @@ const GameDetailsPage = () => {
   if (error || !game) throw error;
 
   return (
-    <>
-      <Heading>{game.name}</Heading>
-      <ExpandableText>{game.description_raw}</ExpandableText>
-      <GameAttributes game={game} />
-      <GameTrailer gameId={game.id} />
-      <GameScreenshots gameId={game.id} />
-    </>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+      <Box>
+        <Heading>{game.name}</Heading>
+        <ExpandableText>{game.description_raw}</ExpandableText>
+        <GameAttributes game={game} />
+      </Box>
+      <Box>
+        <GameTrailer gameId={game.id} />
+        <GameScreenshots gameId={game.id} />
+      </Box>
+    </SimpleGrid>
   );
 };
 
