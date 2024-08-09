@@ -9,9 +9,17 @@ const NavBar = () => {
   const { pathname } = useLocation();
   const img =
     pathname.indexOf("games/") > -1 ? (
-      <Icon boxSize="60px" paddingTop={4}><BsChevronLeft /></Icon>
+      <Icon boxSize="48px" minWidth="48px" margin={4} paddingTop={3}>
+        <BsChevronLeft />
+      </Icon>
     ) : (
-      <Image src={logo} boxSize="60px" objectFit="cover" />
+      <Image
+        src={logo}
+        boxSize="48px"
+        minWidth="48px"
+        margin={4}
+        objectFit="cover"
+      />
     );
 
   return (
