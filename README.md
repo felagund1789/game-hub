@@ -42,7 +42,15 @@ To get started with GameHub, follow these steps:
 
 ## Contributing
 
-If you'd like to contribute to GameHub, please fork the repository, create a new branch, and submit a pull request. Contributions are welcome!
+If you'd like to contribute to GameHub, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch-name`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature-branch-name`
+5. Open a pull request.
+
+Contributions are welcome!
 
 ## Acknowledgements
 
